@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Notícias</title>
+  <meta name="description" content="Fique por dentro das últimas notícias esportivas, clima em tempo real e chat interativo.">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="stylesheet" href="components/chat.css">
+
+  <link rel="stylesheet" href="components/theme.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <img src="logo-lobo.png" alt="Logo Lobo 2D" height="40">
+        <span>News day</span>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#destaque">Destaque</a></li>
+        <li><a href="#ultimas">Últimas</a></li>
+        <li><a href="#chat-clima">Chat & Clima</a></li>
+      </ul>
+      <button class="toggle-theme" id="toggle-theme" aria-label="Alternar tema">🌙</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="destaque" class="highlight" aria-labelledby="titulo-destaque">
+      <h2 id="titulo-destaque">Notícia em Destaque</h2>
+      <div id="destaque-content">
+        <img id="img-destaque" src="https://via.placeholder.com/800x400" alt="Imagem da notícia em destaque">
+        <p id="resumo-destaque">Resumo da notícia em destaque.</p>
+      </div>
+      <button id="prox" aria-label="Próxima notícia em destaque">Próxima notícia</button>
+    </section>
+
+    <section id="ultimas" class="news-list" aria-labelledby="ultimas-titulo">
+      <h2 id="ultimas-titulo">Últimas Notícias</h2>
+      <div id="news-list" class="news-grid">
+        <div class="news-item skeleton-load">
+          <div class="skeleton-image"></div>
+          <div class="skeleton-text">
+            <div class="skeleton-line" style="width: 80%;"></div>
+            <div class="skeleton-line" style="width: 95%;"></div>
+            <div class="skeleton-line" style="width: 60%;"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="chat-clima" class="chat-clima">
+      <div id="chat-widget"></div>
+
+      <div class="clima">
+        <h2>Clima em Tempo Real</h2>
+        <p id="clima">Carregando clima...</p>
+      </div>
+    </section>
+
+    <div id="suporte-assistente">
+      <button id="abrir-assistente" title="Abrir suporte">🦉 Assistente</button>
+      <div id="assistente-chat" class="assistente-chat">
+        <div class="assistente-header">
+          <span>Suporte News day</span>
+          <button id="limpar-assistente" title="Limpar chat">🧹</button>
+          <button id="fechar-assistente" title="Fechar">✖</button>
+        </div>
+        <div class="assistente-mensagens" id="assistente-mensagens">
+          <div class="assistente-msg assistente-bot">Olá! Como posso ajudar você hoje?</div>
+        </div>
+        <form id="assistente-form">
+          <input type="text" id="assistente-input" placeholder="Digite sua dúvida..." autocomplete="off" />
+          <button type="submit">Enviar</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 News day. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="script.js"></script>
+
+  <script src="components/chat.js"></script>
+  <script src="components/theme.js"></script>
+</body>
+</html>
